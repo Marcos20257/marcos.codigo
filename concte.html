@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrar-se</title>
+  <style>
+    body {
+      background-color: #0D1117;
+      color: #FFFFFF;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: auto;
+      padding: 30px;
+      background-color: #161B22;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(88, 166, 255, 0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #58A6FF;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
+      background-color: #0D1117;
+      color: #FFFFFF;
+      font-size: 16px;
+      outline: none;
+      border: 1px solid #30363D;
+    }
+
+    input::placeholder {
+      color: #8B949E;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #238636;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2ea043;
+    }
+
+    p {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    a {
+      color: #00c853;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Criar Conta</h2>
+    <input type="text" id="username" placeholder="Usuário">
+    <input type="password" id="password" placeholder="Senha">
+    <button onclick="register()">Registrar</button>
+    <p>Já tem conta? <a href="login.html">Entrar</a></p>
+  </div>
+
+  <script>
+    function register() {
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+
+      if (user && pass) {
+        localStorage.setItem('usuario', user);
+        localStorage.setItem('senha', pass);
+        alert('Conta criada com sucesso!');
+        window.location.href = "login.html";
+      } else {
+        alert('Preencha todos os campos!');
+      }
+    }
+  </script>
+</body>
+</html>
